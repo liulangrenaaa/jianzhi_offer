@@ -1,0 +1,3 @@
+/home/ubuntu/workspace/leetcode/jianzhi_offer/lib/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/workspace/leetcode/jianzhi_offer/lib/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/workspace/leetcode/jianzhi_offer/lib/build/CMakeFiles/offer_comm.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,liboffer_lib.so -o liboffer_lib.so CMakeFiles/offer_lib.dir/src/offer_common.c.o 

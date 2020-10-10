@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../lib/inc/common_c.h
+stdio.h
+-
+string.h
+-
+stdio.h
+-
+unistd.h
+-
+stdbool.h
+-
+
+../../lib/inc/offer_common.h
+
+/home/ubuntu/workspace/leetcode/jianzhi_offer/04.二维数组中的查找/main.c
+common_c.h
+/home/ubuntu/workspace/leetcode/jianzhi_offer/04.二维数组中的查找/common_c.h
+offer_common.h
+/home/ubuntu/workspace/leetcode/jianzhi_offer/04.二维数组中的查找/offer_common.h
+
