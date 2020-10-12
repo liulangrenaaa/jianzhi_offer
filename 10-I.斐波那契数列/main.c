@@ -7,8 +7,31 @@
  * @param n
  * @return int
  */
-int fib(int n){
+int fib1(int n){
+    if (n == 0)
+        return 0;
 
+    if (n == 1)
+        return 1;
+
+    return fib(n - 1) + fib(n - 2);
+
+}
+
+
+int fib(int n){
+	int constant = 1000000007;
+	int first = 0;
+	int second = 1;
+	int temp = 0;
+
+	while (n--) {
+		temp = second + first;
+		first = second;
+		second = temp % constant;
+	}
+
+	return first;
 }
 
 /**
@@ -20,8 +43,8 @@ int fib(int n){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
-    printf("result is %d\n", 1);
+    int result = fib(45);
+    printf("result is %d\n", result);
 
     return 1;
 }

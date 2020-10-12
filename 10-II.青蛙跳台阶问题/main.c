@@ -7,8 +7,26 @@
  * @param n
  * @return int
  */
-int numWays(int n){
 
+int numWays(int n){
+    int first = 1;
+    int second = 1;
+    int temp = 0;
+
+    while (n--) {
+        temp = first + second;
+        first = second;
+        second = temp % 1000000007;
+    }
+
+    return first;
+}
+
+int numWays1(int n){
+    if (n <= 1)
+        return 1;
+
+    return numWays(n - 1) + numWays(n - 2);
 }
 
 /**
@@ -20,8 +38,8 @@ int numWays(int n){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
-    printf("result is %d\n", 1);
+    int result = numWays(7);
+    printf("result is %d\n", result);
 
     return 1;
 }
