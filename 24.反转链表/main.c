@@ -2,15 +2,32 @@
 #include "offer_common.h"
 
 /**
- * @brief leetcode func
- *
- * @param nums
- * @param numsSize
- * @return int
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
  */
-int leetcode_func(void){
 
-    return 0;
+
+struct ListNode* reverseList(struct ListNode* head){
+    struct ListNode *current, *last, *next;
+
+    last = head;
+    if (last == NULL || head->next == NULL) {
+        return head;
+    }
+
+    current = head->next;
+    head->next = NULL;  // 记得将 head->next 设置为null，否则会超时
+    while (current) {
+        next = current->next;
+        current->next = last;
+        last = current;
+        current = next;
+    }
+
+    return last;
 }
 
 /**
@@ -22,7 +39,7 @@ int leetcode_func(void){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
+    reverseList();
     printf("result is %d\n", 1);
 
     return 1;

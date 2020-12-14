@@ -1,16 +1,28 @@
 #include "common_c.h"
 #include "offer_common.h"
 
-/**
- * @brief leetcode func
- *
- * @param nums
- * @param numsSize
- * @return int
- */
-int leetcode_func(void){
 
-    return 0;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+struct ListNode* getKthFromEnd(struct ListNode* head, int k){
+    struct ListNode *fast = head, *slow = head;
+    while(fast && k--) {
+        fast = fast->next;
+    }
+
+    while (fast) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+
+    return slow;
 }
 
 /**
@@ -22,7 +34,7 @@ int leetcode_func(void){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
+    getKthFromEnd();
     printf("result is %d\n", 1);
 
     return 1;

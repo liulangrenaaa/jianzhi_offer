@@ -2,15 +2,26 @@
 #include "offer_common.h"
 
 /**
- * @brief leetcode func
- *
- * @param nums
- * @param numsSize
- * @return int
+ * Note: The returned array must be malloced, assume caller calls free().
  */
-int leetcode_func(void){
+int* printNumbers(int n, int* returnSize){
+    int * p = NULL;
+    int i = 0, k = 1;
 
-    return 0;
+    while (n) {
+        k = k * 10;
+        n--;
+    }
+
+    k--;
+    *returnSize = k;
+    printf("k = %d", k);
+    p = (int *) malloc(k * sizeof(int));
+    for (i = 0; i < k; i++) {
+        p[i] = i + 1;
+    }
+
+    return p;
 }
 
 /**
@@ -22,7 +33,7 @@ int leetcode_func(void){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
+    printNumbers();
     printf("result is %d\n", 1);
 
     return 1;

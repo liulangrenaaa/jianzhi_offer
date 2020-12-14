@@ -2,15 +2,38 @@
 #include "offer_common.h"
 
 /**
- * @brief leetcode func
- *
- * @param nums
- * @param numsSize
- * @return int
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
  */
-int leetcode_func(void){
 
-    return 0;
+
+struct ListNode* deleteNode(struct ListNode* head, int val){
+    struct ListNode *last = NULL, *current = NULL, *next = NULL;
+
+    if (head == NULL) {
+        return head;
+    }
+
+    if (head->val == val) {
+        return head->next;
+    }
+
+    last = head;
+    current = head->next;
+    while (current) {
+        next = current->next;
+        if (val == current->val) {
+            last->next = next;
+            break;
+        }
+        last = last->next;
+        current = current->next;
+    }
+
+    return head;
 }
 
 /**
@@ -22,7 +45,7 @@ int leetcode_func(void){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
+    deleteNode();
     printf("result is %d\n", 1);
 
     return 1;
