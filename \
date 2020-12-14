@@ -7,17 +7,12 @@ char* reverseLeftWords(char* s, int n){
 
     int len = strlen(s);
     int i = 0, j = 0;
-    char *p = (char *)calloc((len + 1), sizeof(char *));
+    char *p = (char *)calloc((len + 1)* sizeof(char *));
+
 
     n = n % len;
     if (n == 0) {
         return s;
-    }
-
-    i = 0;
-    while (i < n) {
-        p[(len - n) + i] = s[i];
-        i++;
     }
 
     i = n;
@@ -26,9 +21,12 @@ char* reverseLeftWords(char* s, int n){
         i++;
     }
 
-    p[len] = '\0';
-
-    return p;
+    i = 0;
+    while (i < n) {
+        p[i + n] = s[i];
+        i++;
+    }
+    p[i] = '\n'
 }
 
 /**

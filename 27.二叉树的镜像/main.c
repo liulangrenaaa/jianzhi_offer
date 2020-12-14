@@ -10,7 +10,14 @@
  * };
  */
 struct TreeNode* mirrorTree(struct TreeNode* root){
+    if (root) {
+        struct TreeNode* left = root->left;
+        struct TreeNode* right = root->right;
+        root->left = mirrorTree(right);
+        root->right = mirrorTree(left);
+    }
 
+    return root;
 }
 /**
  * @brief test main()

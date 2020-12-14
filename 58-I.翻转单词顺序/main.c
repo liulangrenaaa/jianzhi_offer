@@ -3,6 +3,30 @@
 
 char* reverseWords(char* s){
 
+    if (!s || !(s+1)) {
+        return s;
+    }
+
+    int size = strlen(s);
+    char *p = NULL;
+    char *wf = NULL, *wp = NULL;
+    int i = 0;
+
+    p = (char *)malloc(size * sizeof(char));
+
+    wf = s + size - 1;
+    while(wf > s) {
+        if (wf != ' ') {
+            wf--;
+        } else {
+            ;
+        }
+
+        while (1) {
+            p[i++] = 
+        }
+    }
+
 }
 
 /**
