@@ -90,3 +90,7 @@ int main(int argc, char **argv)
     printf("result is %d\n", result);
     return 1;
 }
+
+bool findNumberIn2DArray(int** matrix, int matrixSize, int* matrixColSize, int target){
+
+}

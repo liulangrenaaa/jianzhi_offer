@@ -2,6 +2,7 @@
 #include "offer_common.h"
 
 int sumNums(int n){
+    return (n ^ 1)? (sumNums(n - 1) + n): 1;
 
 }
 

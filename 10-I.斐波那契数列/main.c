@@ -48,3 +48,54 @@ int main(int argc, char **argv)
 
     return 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int fib(int n){
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    if (n == 2) return 1;
+
+    int first = 1;
+    int second = 1;
+    int sum = 0;
+    int i = 0;
+    int this = 0;
+
+    for (i = 2; i < n; i++) {
+        this = (first + second) % 1000000007;
+        first = second;
+        second = this;
+    }
+
+    return this;
+}

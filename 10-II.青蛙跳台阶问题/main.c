@@ -43,3 +43,29 @@ int main(int argc, char **argv)
 
     return 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+int numWays(int n){
+    if (n == 0) return 1;
+    if (n == 1) return 1;
+    if (n == 2) return 2;
+
+    int i = 0, num1 = 1, num2 = 2, this = 0;
+    for (i = 2; i < n; i++) {
+        this = (num1 + num2) % 1000000007;
+        num1 = num2;
+        num2 = this;
+    }
+
+    return this;
+}

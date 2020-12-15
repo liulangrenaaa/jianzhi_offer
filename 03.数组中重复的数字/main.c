@@ -42,3 +42,28 @@ int main(int argc, char **argv)
 
     return 1;
 }
+
+
+
+
+
+
+
+
+
+int findRepeatNumber(int* nums, int numsSize) {
+    if (nums == NULL) {
+        return -1;
+    }
+    int * arr = (int *)calloc(sizeof(int), numsSize);
+    int i = 0;
+
+    for (i = 0; i < numsSize; i++) {
+        arr[nums[i]]++;
+        if (arr[nums[i]] > 1) {
+            return nums[i];
+        }
+    }
+
+    return -1;
+}

@@ -1,16 +1,22 @@
 #include "common_c.h"
 #include "offer_common.h"
 
-/**
- * @brief leetcode func
- *
- * @param nums
- * @param numsSize
- * @return int
- */
-int leetcode_func(void){
 
-    return 0;
+
+
+
+int hammingWeight(uint32_t n) {
+    uint32_t i = 0;
+    uint32_t x = 1;
+    int res = 0;
+
+    for (i = 0; i < 32; i++) {
+        x = ((uint32_t)1 << i);
+        if (n & x) {
+            res++;
+        }
+    }
+    return res;
 }
 
 /**
@@ -22,7 +28,7 @@ int leetcode_func(void){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
+    hammingWeight();
     printf("result is %d\n", 1);
 
     return 1;

@@ -2,15 +2,40 @@
 #include "offer_common.h"
 
 /**
- * @brief leetcode func
- *
- * @param nums
- * @param numsSize
- * @return int
+ * Note: The returned array must be malloced, assume caller calls free().
  */
-int leetcode_func(void){
+int* exchange(int* nums, int numsSize, int* returnSize){
+    if (nums == NULL || numsSize == 0) {
+        *returnSize = 0;
+        return NULL;
+    }
 
-    return 0;
+    if (numsSize == 1) {
+        *returnSize = 1;
+        return nums;
+    }
+
+    int i = 0, h = 0, l = numsSize - 1;
+    int tmp = 0;
+
+    while(h < l) {
+        while (h < l && nums[h] % 2 == 1) {
+            h++;
+        }
+
+        while (h < l && nums[l] % 2 == 0) {
+            l--;
+        }
+
+        if (h < l) {
+            tmp = nums[h];
+            nums[h] = nums[l];
+            nums[l] = tmp;
+        }
+    }
+    *returnSize = numsSize;
+
+    return nums;
 }
 
 /**
@@ -22,7 +47,7 @@ int leetcode_func(void){
  */
 int main(int argc, char **argv)
 {
-    leetcode_func();
+    exchange();
     printf("result is %d\n", 1);
 
     return 1;
