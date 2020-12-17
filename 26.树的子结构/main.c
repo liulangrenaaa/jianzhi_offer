@@ -9,8 +9,41 @@
  *     struct TreeNode *right;
  * };
  */
-bool isSubStructure(struct TreeNode* A, struct TreeNode* B){
 
+bool Does_A_HAVE_B(struct TreeNode* A, struct TreeNode* B) {
+    if (NULL == B) {
+        return true;
+    }
+
+    if (NULL == A) {
+        return false;
+    }
+
+    if (A->val != B->val) {
+        return false;
+    }
+
+    return Does_A_HAVE_B(A->left, B->left) && Does_A_HAVE_B(A->right, B->right);
+}
+
+bool isSubStructure(struct TreeNode* A, struct TreeNode* B){
+    if (NULL == A || NULL == B) {
+        return false;
+    }
+
+    bool res = false;
+    if (A->val == B->val)
+        res = Does_A_HAVE_B(A, B);
+
+    if (res == false) {
+        res = isSubStructure(A->left, B);
+    }
+
+    if (res == false) {
+        res = isSubStructure(A->right, B);
+    }
+
+    return res;
 }
 
 /**

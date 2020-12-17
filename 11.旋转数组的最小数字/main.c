@@ -43,3 +43,40 @@ int main(int argc, char **argv)
 
     return 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int minArray(int* numbers, int numbersSize){
+    if (numbers == NULL || numbersSize == 0)
+        return 0;
+    if (numbersSize == 1)
+        return numbers[0];
+
+    int min = numbers[0];
+    int i = 0;
+
+    for (i = 1; i < numbersSize; i++) {
+        if (min > numbers[i]) {
+            min = numbers[i];
+        }
+    }
+
+    return min;
+}
