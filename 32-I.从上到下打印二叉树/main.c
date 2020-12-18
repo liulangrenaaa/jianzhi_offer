@@ -13,11 +13,38 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+
+typedef struct {
+    struct TreeNode *data[1010];
+    int head;
+    int tail;
+} Queue;
+
 int *levelOrder(struct TreeNode *root, int *returnSize)
 {
+    *returnSize = 0;
+    if (!root) {
+        return NULL;
+    }
+
+    Queue *q = (Queue *)malloc(sizeof(Queue));
+    int *arr = (int *)malloc(1010 * sizeof(int));
+
+    q->head = 0;
+    q->tail = 1;
+    q->data[q->head] = root;
+    while (q->head != q->tail) {
+        if (q->data[q->head]->left)
+            q->data[q->tail++] = q->data[q->head]->left;
+        if (q->data[q->head]->right)
+            q->data[q->tail++] = q->data[q->head]->right;
+        arr[(*returnSize)++] = q->data[q->head++]->val;
+    }
+
+    return arr;
 }
 
-
+================================================================================
 /**
  * 创建一个队列，用low和high作为队列的头尾指针，先将二叉树的根入队列并将尾指针high加一；
 进入循环，循环结束条件为low >= high，代表遍历了整个队列即遍历了整个二叉树；

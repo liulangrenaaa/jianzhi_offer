@@ -92,5 +92,24 @@ int main(int argc, char **argv)
 }
 
 bool findNumberIn2DArray(int** matrix, int matrixSize, int* matrixColSize, int target){
+    if (matrix == NULL) {
+        return false;
+    }
 
+    int lie = *matrixSize, i = 0;
+    int hang = (matrixSize / lie), j = 0;
+
+    for (i = 0; i < lie; i++) {
+        for (j = hange - 1; j >= 0; j--) {
+            if (target > matrix[i][j]) {
+                i++;
+            } else if (target < matrix[i][j]) {
+                j--;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
